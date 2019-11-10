@@ -1,5 +1,5 @@
 # Air Pollution Monitor V1 Design 
-Page describing my air pollution monitor design that I finished building in the spring of 2019. 
+Page describing my air pollution monitor design that I finished building in the spring of 2019. Currently working on version 2, which features more accurate sensors and cloud-based data analysis. 
 
 ### Markdown
 
