@@ -1,8 +1,5 @@
 # Air Pollution Monitor V1 Design 
-
-You can use the [editor on GitHub](https://github.com/sandman1544/Air-Pollution-Monitor-V1/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Page describing my air pollution monitor design that I finished building in the spring of 2019. 
 
 ### Markdown
 
