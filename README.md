@@ -1,6 +1,10 @@
 # Air Pollution Monitor V1 Design 
 Page describing my air pollution monitor design (Version 1) that I finished building in the spring of 2019. Currently working on Version 2, which features more accurate sensors and the ability to group multiple monitors together for data analysis. 
 
+# Purpose 
+The purpose of this project was to build an internet-connected device that quantifies and logs data related to the concentrations of various air pollutants. This data can then be analyzed using statistical analysis to isolate potential contributing factors to localized air pollution. This device, coupled with analytics, comprise the “system” in reference.  
+
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
