@@ -15,6 +15,7 @@ Two prototypes were made. The first, made using breadboards, was used to develop
 ![Image](Prototype.png)
 Second Prototype
 
+## Final Product
 ![Image](Final Product.png)
 
 ## Components of Final Product
@@ -57,8 +58,10 @@ A custom, two-layer, PCB was designed to house all electrical components and was
 ![Image](BoardDesign.png)
 
 ![Image](PCB Top.png)
+Top Side of PCB 
 
 ![Image](PCB Bottom.png)
+Bottom Side of PCB
 
 ## Schematic
 
