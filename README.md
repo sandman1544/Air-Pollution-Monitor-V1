@@ -12,6 +12,8 @@ The final product was programmed to measure Volatile Organic Compounds (VOC), Ni
 ## Prototypes
 Two prototypes were made. The first, made using breadboards, was used to develop the Electron - ATmega328 communication method. Functional code was also made for this prototype. The second prototype was made using a perfboard and solder, and it also had new firmware. The hardware design comprising the second prototype was translated directly into the final product (see page 3 for final product). 
 
+![Image](/Prototpye.png)
+
 ## Components of Final Product
 1. Custom PCB (see “PCB” on page 4 for more info)
 2. Grove Multichannel Gas Sensor
