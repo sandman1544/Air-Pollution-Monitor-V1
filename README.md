@@ -83,7 +83,7 @@ As the table above indicates, there is a statistically significant difference in
 
 
 ## ATmega328 Firmware
-```C
+``` C
 //Thanks to Adafruit for providing PM sensor code, which was modified and used in this program
 #include "DHT.h"
 #include <Wire.h>
@@ -258,7 +258,7 @@ Serial.write(sensorData,110);
 ```
 
 ## Particle Electron Firmware 
-```C
+``` C
 Particle Electron Firmware
 //SETTINGS
 int samplingDuration=60000; //time between pollution measurements being sent to electron from arduino, NOT the time interval between data being sent to the internet
