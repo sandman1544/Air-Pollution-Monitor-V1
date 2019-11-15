@@ -55,7 +55,9 @@ The multiple MQ gas sensors used in the prototypes were replaced by a grove mult
 A custom, two-layer, PCB was designed to house all electrical components and was sent to a factory for manufacturing. 
 
 ![Image](BoardDesign.png)
+
 ![Image](PCB Top.png)
+
 ![Image](PCB Bottom.png)
 
 ## Schematic
