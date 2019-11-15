@@ -13,6 +13,9 @@ The final product was programmed to measure Volatile Organic Compounds (VOC), Ni
 Two prototypes were made. The first, made using breadboards, was used to develop the Electron - ATmega328 communication method. Functional code was also made for this prototype. The second prototype was made using a perfboard and solder, and it also had new firmware. The hardware design comprising the second prototype was translated directly into the final product (see page 3 for final product). 
 
 ![Image](Prototype.png)
+Second Prototype
+
+![Image](Final Product.png)
 
 ## Components of Final Product
 1. Custom PCB (see “PCB” on page 4 for more info)
@@ -51,13 +54,28 @@ The multiple MQ gas sensors used in the prototypes were replaced by a grove mult
 ## PCB
 A custom, two-layer, PCB was designed to house all electrical components and was sent to a factory for manufacturing. 
 
+![Image](BoardDesign.png)
+![Image](PCB Top.png)
+![Image](PCB Bottom.png)
+
+## Schematic
+
+
 ## Serial Data Transfer Hardware and Method
 As seen in the schematic above, there is a voltage divider in between the ATmega328’s TX pin and the Electron’s RX pin. This enables communication between the 5V ATmega328 and the 3.3V Particle Electron. The resistors in the voltage divider were chosen to precisely generate a 3.3V output when there is 5V on the left node of R5 (see schematic). This only happens when TX of the ATmega328 goes high. Because the ATmega328 detects 3.3V as a logical high, the TX of the Electron can be directly connected to the RX of the ATmega328. This method will only work reliably at low data transfer rates (baud rates). For this reason, a baud rate of 9600 bits/second was used. The simplest, and most reliable, method of data transfer from the Arduino to the Electron was to convert the floats and integers outputted by the various sensors to strings. These strings were then concatenated and converted into a char array. This char array was sent to the Particle Electron using Serial.write(). Upon receiving any data on its RX line, the Electron sends the data to particle.io servers.
 
 ## Usage
 Multiple device trials were used to gauge the air pollution, in order to quantify the effect of a local quarry on pollutant concentrations. This was the original purpose of the system. The data resulting from this study is currently being processed at the time of writing. Another use case of the system was quantifying air pollutants in the Bay Area during the November wildfires in Northern California. This data was compared to a set of control data taken when there were no wildfires. All data is sent to Particle.io servers using the Particle.publish() command. Every time Particle.publish() is executed, all sensor data is sent to the particle.io servers. An IFTTT applet was made to send the data from particle.io servers to a google spreadsheet in real-time. A split function was used to separate the comma separated values. The first three data values were deleted, as there were no sensors connected to the analog pins A0, A1, and A2 of the ATmega328.
 
+![Image](Data Example.png)
+
 The control data was measured over the course of three days (October 1st to October 3rd), and consisted of 835 data logs. The wildfire data was taken over the course of four days (November 15th to November 18th), and consisted of 2000 data logs. The same device was placed in the same location to gather both sets of data, in order to control for errors and variances not taken into account. Below are the means and medians of each set of data: 
+
+![Image](Data Table.png)
+
+## Analysis
+As the table above indicates, there is a statistically significant difference in the mean and median for VOC and NO2 between the two sets of data. In addition, all measures of particulate matter (both concentration and count for all PM sizes) are significantly higher in the wildfire data compared to the control data. Graphs can be made using the built-in chart making features of google spreadsheet to analyze pollutant trends over time. 
+
 
 ## ATmega328 Firmware
 ```C
