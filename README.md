@@ -64,7 +64,7 @@ Top Side of PCB
 Bottom Side of PCB
 
 ## Schematic
-
+![Image](Schematic.png)
 
 ## Serial Data Transfer Hardware and Method
 As seen in the schematic above, there is a voltage divider in between the ATmega328’s TX pin and the Electron’s RX pin. This enables communication between the 5V ATmega328 and the 3.3V Particle Electron. The resistors in the voltage divider were chosen to precisely generate a 3.3V output when there is 5V on the left node of R5 (see schematic). This only happens when TX of the ATmega328 goes high. Because the ATmega328 detects 3.3V as a logical high, the TX of the Electron can be directly connected to the RX of the ATmega328. This method will only work reliably at low data transfer rates (baud rates). For this reason, a baud rate of 9600 bits/second was used. The simplest, and most reliable, method of data transfer from the Arduino to the Electron was to convert the floats and integers outputted by the various sensors to strings. These strings were then concatenated and converted into a char array. This char array was sent to the Particle Electron using Serial.write(). Upon receiving any data on its RX line, the Electron sends the data to particle.io servers.
