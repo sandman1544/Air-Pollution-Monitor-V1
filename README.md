@@ -10,7 +10,7 @@ Due to the usage of the device in remote areas, the device connects to the inter
 The final product was programmed to measure Volatile Organic Compounds (VOC), Nitrogen Dioxide (NO2), Carbon Monoxide (CO), Ammonia (NH3), concentration of particulate matter less than 1.0 μm in diameter (PM1.0Mass), concentration of particulate matter less than 2.5 μm in diameter (PM2.5Mass), concentration of particulate matter less than 10 μm in diameter (PM10Mass), number of particles with diameter beyond 0.3 μm (PM0.3Count), number of particles with diameter beyond 0.5 μm (PM0.5Count), number of particles with diameter beyond 1.0 μm (PM1.0Count), number of particles with diameter beyond 2.5 μm (PM2.5Count). 
 
 ## Prototypes
-Two prototypes were made. The first, made using breadboards, was used to develop the Electron - ATmega328 communication method. Functional code was also made for this prototype. The second prototype was made using a perfboard and solder, and it also had new firmware. The hardware design comprising the second prototype was translated directly into the final product (see page 3 for final product). 
+Two prototypes were made. The first, made using breadboards, was used to develop the Electron - ATmega328 communication method. Functional code was also made for this prototype. The second prototype was made using a perfboard and solder, and it also had new firmware. The hardware design comprising the second prototype was translated directly into the final product.
 
 ![Image](Prototype.png)
 Second Prototype
