@@ -266,7 +266,6 @@ Serial.write(sensorData,110);
 
 ## Particle Electron Firmware 
 ``` C++
-Particle Electron Firmware
 //SETTINGS
 int samplingDuration=60000; //time between pollution measurements being sent to electron from arduino, NOT the time interval between data being sent to the internet
 
