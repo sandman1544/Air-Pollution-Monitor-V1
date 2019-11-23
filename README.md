@@ -135,7 +135,8 @@ void setup()
   digitalWrite(8,LOW);
 }
 
-struct pms5003data {
+struct pms5003data 
+{
   uint16_t framelen;
   uint16_t pm10_standard, pm25_standard, pm100_standard;
   uint16_t pm10_env, pm25_env, pm100_env;
@@ -177,17 +178,21 @@ void loop()
   }
 }
 
-boolean readPMSdata(Stream *s) {
-  if (! s->available()) {
+boolean readPMSdata(Stream *s) 
+{
+  if (! s->available()) 
+  {
     return false;
   }
  
-  if (s->peek() != 0x42) {
+  if (s->peek() != 0x42) 
+  {
     s->read();
     return false;
   }
  
-  if (s->available() < 32) {
+  if (s->available() < 32) 
+  {
     return false;
   }
     
@@ -195,28 +200,30 @@ boolean readPMSdata(Stream *s) {
   uint16_t sum = 0;
   s->readBytes(buffer, 32);
  
-  for (uint8_t i=0; i<30; i++) {
+  for (uint8_t i=0; i<30; i++) 
+  {
     sum += buffer[i];
   }
  
   /* debugging
-  for (uint8_t i=2; i<32; i++) {
+  for (uint8_t i=2; i<32; i++) 
+  {
     Serial.print("0x"); Serial.print(buffer[i], HEX); Serial.print(", ");
   }
   Serial.println();
   */
  
   uint16_t buffer_u16[15];
-  for (uint8_t i=0; i<15; i++) {
+  for (uint8_t i=0; i<15; i++) 
+  {
     buffer_u16[i] = buffer[2 + i*2 + 1];
     buffer_u16[i] += (buffer[2 + i*2] << 8);
   }
- 
 
   memcpy((void *)&data, (void *)buffer_u16, 30);
  
-  if (sum != data.checksum) {
- 
+  if (sum != data.checksum) 
+  {
     return false;
   }
 
@@ -225,13 +232,12 @@ boolean readPMSdata(Stream *s) {
 
 void fanOn()
 {
-  
   analogWrite(9,30);
   pinMode(8,INPUT);
 }
+
 void fanOff()
 {
- 
   analogWrite(9,255); 
   pinMode(8,OUTPUT);
   digitalWrite(8,LOW);
@@ -246,7 +252,6 @@ void readSensors()
    temp=dht.readTemperature(true);
    humidity=dht.readHumidity();
    MCNO2=gas.measure_NO2();
-
    MCCO=gas.measure_CO();
    MCCH4=gas.measure_CH4();
    MCNH3=gas.measure_NH3();
@@ -277,13 +282,16 @@ class pollutionTimerEndClass
   private:
     Timer* pollutionTimerPointer_ = nullptr;
   public:
-  void getPollutionData() {
+  void getPollutionData() 
+  {
         readSensors();
-        if (pollutionTimerPointer_ != nullptr) {
+        if (pollutionTimerPointer_ != nullptr) 
+        {
             pollutionTimerPointer_->stop();
         }
     }
-    void setPollutionTimerPointer(Timer* pollutionTimerPointer) {
+    void setPollutionTimerPointer(Timer* pollutionTimerPointer) 
+    {
         pollutionTimerPointer_ = pollutionTimerPointer;
     }
    
@@ -298,14 +306,15 @@ class fanTimerEndClass      //the purpose of this class is that it contains all 
     private:
        Timer* pollutionTimerPointer_;
     public:
-    fanTimerEndClass(Timer* pollutionTimerPointer) {
+    fanTimerEndClass(Timer* pollutionTimerPointer) 
+    {
         pollutionTimerPointer_ = pollutionTimerPointer;
     }
-    void toggleFan() {                 //sends data to the fan
+    void toggleFan()        //sends data to the fan
+    {                 
         if(fanOn==false)
             {
                 Serial1.write('f');
-                
                 fanOn=true;
                 pollutionTimerPointer_->start();
             }
